@@ -1,0 +1,24 @@
+
+public class FirstJavaProgram {
+
+	public static void main(String[] args) {		
+		char[] name = {'m', 'a', 't', 'e', 'u', 's'};
+		String word = "gato";
+		char[] array = word.toCharArray();
+		
+		for (int i=0; i < word.length(); i++) {
+			System.out.println(array[i]);
+		}
+		
+	}
+
+	
+	public boolean isPalindrome(String word) {
+		int tam = word.length();
+		char reverse[] = new char[tam];
+		
+		
+		
+		return true;
+	}
+}

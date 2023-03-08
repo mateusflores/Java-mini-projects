@@ -1,0 +1,31 @@
+package com.example;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * Write a list and add an aleatory number of Strings. In the end, print out how
+ * many distinct itens exists on the list.
+ *
+ */
+
+public class TASK3 {
+	public static void main(String[] args) {
+		ArrayList<String> stringsArray = new ArrayList<String>();
+		//for (int i = 0; i < 95; i++)
+		System.out.print(GenerateString().toString() + " ");
+		
+		
+	}
+	
+	static char[] GenerateString() {
+		String vowels = "AEIOU";
+		int len = (int)(Math.random()*4+2);
+		char[] str = {'m', 'a', 't'};
+		
+			
+		return str;
+	}
+	
+  
+}

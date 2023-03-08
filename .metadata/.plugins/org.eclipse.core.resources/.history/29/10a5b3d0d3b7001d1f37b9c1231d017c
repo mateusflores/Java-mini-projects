@@ -1,0 +1,25 @@
+
+public class FirstJavaProgram {
+
+	public static void main(String[] args) {		
+		String word = "gato";
+		word = word.toUpperCase();
+		
+		
+		boolean valor = isPalindrome(word);
+		
+		if (valor) {
+			System.out.println("A palavra é um palindromo!");
+		} else {
+			System.out.println("A palavra NÃO é um palindromo...");
+		}
+	}
+
+	
+	public static boolean isPalindrome(String word) {
+		char[] arr = word.toCharArray();
+		System.out.println(arr);
+		
+		return true;
+	}
+}

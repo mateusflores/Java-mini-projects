@@ -1,0 +1,138 @@
+package com.example;
+/**
+ * Task here is to write a list. Each element must know the element before and
+ * after it. Print out your list and them remove the element in the middle of
+ * the list. Print out again.
+ *
+ */
+
+class Item {
+	private int value;
+	private Item before;
+	private Item after;
+	
+	public Item(int value, Item before, Item After) {
+		this.setValue(value);
+		this.setBefore(before);
+		this.setAfter(After);
+	}
+	
+	void setValue(int value) {
+		this.value = value;
+	}
+	
+	int getValue() {
+		return this.value;
+	}
+	
+	void setBefore(Item before) {
+		this.before = before;
+	}
+	
+	Item getBefore() {
+		return this.before;
+	}
+	
+	void setAfter(Item after) {
+		this.after = after;
+	}
+	
+	Item getAfter() {
+		return this.after;
+	}
+}
+
+public class TASK2 {
+	static Item head = null;	
+	
+	static void addItem(int n) {
+		Item newItem = new Item(n, null, null);
+		Item lastItem = head;
+		
+		if (head == null) {
+			head = newItem;
+			return;
+		}
+		
+		while (lastItem.getAfter() != null)
+			lastItem = lastItem.getAfter();
+		
+		lastItem.setAfter(newItem);
+		newItem.setBefore(lastItem);
+	}
+	
+	static void printList() {
+		Item lastItem = head;
+		
+		while (lastItem != null) {
+			System.out.print(lastItem.getValue() + " ");
+			lastItem = lastItem.getAfter();
+		}
+	}
+	
+	static int listSize() {
+		Item lastItem = head;
+		int size = 0;
+		
+		while (lastItem != null) {
+			size += 1;
+			lastItem = lastItem.getAfter();
+		}
+		
+		return size;
+	}
+	
+	static boolean removeMiddle() {
+		int size = listSize();
+		Item lastItem = head;
+		int i = 0;
+		
+		if (size<=2) {
+			System.out.println("\n\nThe list is too small to remove the middle item."); 
+			return false;
+		} 
+		// If the list has an odd number of items
+		else if (size%2 != 0) {							
+			while (i != size/2) {
+				i++;
+				lastItem = lastItem.getAfter();
+			}
+			
+			// Deleting the item in the middle
+			lastItem.getBefore().setAfter(lastItem.getAfter());
+			lastItem.getAfter().setBefore(lastItem.getBefore());
+			lastItem = null;
+		} else {
+			// If the list has an even number of items, the items at the positions size/2 and size/2+1 will be deleted
+			while (i != size/2-1) {
+				i++;
+				lastItem = lastItem.getAfter();
+			}
+			
+			// Deleting the item in the middle
+			lastItem.getBefore().setAfter(lastItem.getAfter().getAfter());
+			lastItem.getAfter().getAfter().setBefore(lastItem.getBefore());
+			Item tmp = lastItem.getAfter();
+			lastItem = null;
+			tmp = null;
+			
+		}
+		return true;
+	}
+	
+	public static void main(String[] args) {
+		// Generating a list with even numbers
+		for (int i=0; i<5; i++) 
+			addItem((i+1)*2);
+		
+		System.out.println("Original list: ");
+		printList();
+		
+		if (removeMiddle()) {
+			System.out.println("\nNew List: ");
+			printList();
+		}
+	}
+
+}
+

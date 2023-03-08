@@ -1,0 +1,36 @@
+
+public class FirstJavaProgram {
+
+	public static void main(String[] args) {		
+		String word = "arara";
+		word = word.toUpperCase();
+		boolean valor = isPalindrome(word);
+		
+		if (valor) {
+			System.out.println("A palavra é um palindromo!");
+		} else {
+			System.out.println("A palavra NÃO é um palindromo...");
+		}
+	}
+
+	
+	public static boolean isPalindrome(String word) {
+		char[] arr = word.toCharArray();
+		int tam = word.length();
+		char[] reverse = arr;
+		int j = 0;
+		
+		for (int i=tam-1; i>=0; i--) {
+			reverse[i] = arr[j];
+			j++;
+		}
+		
+		String rev = reverse.toString();
+		
+		if (word == rev) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

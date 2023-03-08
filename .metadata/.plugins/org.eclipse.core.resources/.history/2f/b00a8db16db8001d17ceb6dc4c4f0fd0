@@ -1,0 +1,48 @@
+package com.example;
+import java.util.Scanner;
+/**
+ * 
+ *
+ * Task here is to implement a function that says if a given string is
+ * palindrome.
+ * 
+ * 
+ * 
+ * Definition=> A palindrome is a word, phrase, number, or other sequence of
+ * characters which reads the same backward as forward, such as madam or
+ * racecar.
+ */
+public class TASK1 {
+     public static void main(String[] args) {
+    	 Scanner scn = new Scanner(System.in);
+    	 System.out.print("Enter a word: ");
+    	 String word = scn.nextLine();
+    	 scn.close();
+    	 
+    	 word = word.toUpperCase();
+    	 
+    	 if (isPalindrome(word))
+    		 System.out.println("The given word is a palindrome!");
+    	 else
+    		 System.out.println("The given word is not a palindrome!");
+
+    	 
+
+     }
+     
+     public static boolean isPalindrome(String word) {
+    	 int size = word.length();
+    	 char[] arr = word.toCharArray();
+    	 char reverse[] = new char[size];
+    	 int j = 0;
+    	 
+    	 for (int i=size-1; i>=0; i--) {
+    		 if (arr[i] != arr[j])
+    			 return false;
+    		 j++;
+    	 }
+    	 return true;
+     }
+     
+ 
+}

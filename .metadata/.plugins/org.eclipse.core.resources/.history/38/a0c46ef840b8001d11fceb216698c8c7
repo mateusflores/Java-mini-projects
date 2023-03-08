@@ -1,0 +1,42 @@
+package basic_exercices;
+import java.util.Scanner;
+
+public class gpt_exs {
+
+	public static void main(String[] args) {
+		operacoes();
+		
+	}
+
+	public static void somaPares(int total) {
+		int soma = 0;
+
+		for (int i=0; i<=total; i++) {
+			if (i%2 == 0) {
+				soma += i;
+			}
+		}
+		
+		System.out.println("A soma dos números pares até " + total + " é " + soma);
+	}
+	
+	public static void operacoes() {
+		Scanner scn = new Scanner(System.in);
+		System.out.print("Insira dois números: ");
+		int n1 = scn.nextInt();
+		int n2 = scn.nextInt();
+		
+		int soma = n1 + n2;
+		int dif = n1 - n2;
+		int prod = n1 * n2;
+		double quo = n1 / n2;
+		
+		System.out.println("SOMA: " + soma);
+		System.out.println("DIFERENÇA: " + dif);
+		System.out.println("PRODUTO: " + prod);
+		System.out.println("QUOCIENTE: " + String.format("%.2", quo));
+	}
+}
+
+
+
